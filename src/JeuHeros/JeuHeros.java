@@ -9,7 +9,7 @@ package JeuHeros;
  *@version 
  * @author p1623082
  */
-public class InterfaceHeros {
+public class JeuHeros {
 
     /**
      * @param args the command line arguments
