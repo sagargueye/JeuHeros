@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaceheros;
+package JeuHeros;
 
 /**
  *
@@ -54,4 +54,8 @@ public abstract class Heros implements StructHeros {
 
     public abstract double calculePuissance();
 
+    public double getPointsvie() {
+        return pointsvie;
+    }
+    
 }

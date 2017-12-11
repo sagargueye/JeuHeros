@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaceheros;
+package JeuHeros;
 
 /**main
  *@version 
  * @author p1623082
  */
-public class InterfaceHeros {
+public class JeuHeros {
 
     /**
      * @param args the command line arguments
