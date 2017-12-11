@@ -45,7 +45,29 @@ public class Cas_Ou_Cest_OK {
     // @Test
     // public void hello() {}
     @Test 
-    public void Test1 ()
+    public void Testfeu ()
+    {
+         //Appends : preparation des objet
+         HerosTerre ht=new HerosTerre("Terramon", 150, 100, 25);
+        System.out.println(ht.toString());
+        HerosMer hm = new HerosMer("Hydromon", 170, 6, 30);
+        System.out.println(hm.toString());
+        HerosFeu hf = new HerosFeu("Firomon", 140, 213,7);
+        System.out.println(hf.toString());
+        //act: execution de la methode testéé
+        hf.combat(ht);
+        hf.combat(hm);
+       /* hm.combat(ht);
+        ht.combat(hf);
+        ht.combat(hf);
+        ht.combat(hf);
+        ht.combat(hf); */
+       
+         // assert: verification du resultat
+       assertEquals(140.0, hf.getPointsvie(), 0.0001);
+       
+    }
+    /* public void Testherosterre ()
     {
          //Appends : preparation des objet
          HerosTerre ht=new HerosTerre("Terramon", 150, 100, 25);
@@ -61,20 +83,10 @@ public class Cas_Ou_Cest_OK {
         hf.combat(ht);
         ht.combat(hf);
         ht.combat(hf);
-        ht.combat(hf); */
+        ht.combat(hf); 
        
          // assert: verification du resultat
-       assertEquals(140.0, hf.getPointsvie(), 0.0001);
-         
-         
-       /*   //Appends : preparation des objet
-        Professionel p = new Professionel("MedicPlus", "adresse", "tel");
-        RendezVous rdv= new RendezVous(9,"rendezvous test", p);
-        Jour jrs= new Jour (8, 12);
-        //act: execution de la methode testéé
-        boolean result = jrs.placerRendezVous(9, rdv);
-        // assert: verification du resultat
-        assertFalse(result);*/
-    }
+       assertEquals(150.0, ht.getPointsvie(), 0.0001);
+    }*/
 
 }
