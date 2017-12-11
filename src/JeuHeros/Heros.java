@@ -54,4 +54,8 @@ public abstract class Heros implements StructHeros {
 
     public abstract double calculePuissance();
 
+    public double getPointsvie() {
+        return pointsvie;
+    }
+    
 }

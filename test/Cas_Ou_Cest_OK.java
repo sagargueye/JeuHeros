@@ -47,19 +47,34 @@ public class Cas_Ou_Cest_OK {
     @Test 
     public void Test1 ()
     {
+         //Appends : preparation des objet
          HerosTerre ht=new HerosTerre("Terramon", 150, 100, 25);
         System.out.println(ht.toString());
         HerosMer hm = new HerosMer("Hydromon", 170, 6, 30);
         System.out.println(hm.toString());
         HerosFeu hf = new HerosFeu("Firomon", 140, 213,7);
         System.out.println(hf.toString());
+        //act: execution de la methode testéé
         hf.combat(ht);
-        hm.combat(ht);
+       /* hm.combat(ht);
         ht.combat(hf);
         hf.combat(ht);
         ht.combat(hf);
         ht.combat(hf);
-        ht.combat(hf);
-        //LES ASSERT MACHIN 
+        ht.combat(hf); */
+       
+         // assert: verification du resultat
+       assertEquals(140.0, hf.getPointsvie(), 0.0001);
+         
+         
+       /*   //Appends : preparation des objet
+        Professionel p = new Professionel("MedicPlus", "adresse", "tel");
+        RendezVous rdv= new RendezVous(9,"rendezvous test", p);
+        Jour jrs= new Jour (8, 12);
+        //act: execution de la methode testéé
+        boolean result = jrs.placerRendezVous(9, rdv);
+        // assert: verification du resultat
+        assertFalse(result);*/
     }
+
 }
