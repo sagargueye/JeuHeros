@@ -29,8 +29,12 @@ public class HerosTerre extends Heros{
          return poids/20*agilite;
      }
           
-    public  void combat(Heros herosDefense)
-    {
+     @Override
+    public void combat(Heros herosDefense) throws ZeroVieException {
+       if (this.pointsvie == 0) {
+            throw new ZeroVieException(this.pointsvie);
+        }
+    
         if(this.calculePuissance()>herosDefense.calculePuissance())
             herosDefense.perdpoints(40);
         else if (this.calculePuissance()<herosDefense.calculePuissance())
@@ -38,5 +42,10 @@ public class HerosTerre extends Heros{
         this.etat();
         herosDefense.etat();
             
+    }
+
+    @Override
+    public void combat(JeuHeros herosDefense) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

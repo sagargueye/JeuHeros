@@ -9,7 +9,7 @@ package JeuHeros;
  *
  * @author p1623082
  */
-public class HerosFeu extends Heros  {
+public class HerosFeu extends Heros {
     private double taille;
     private double puissanceFeu;
     
@@ -48,13 +48,16 @@ public class HerosFeu extends Heros  {
     }
     
    /** la methode combat
-    * 
-    * @param h
+    * @param herosDefense
+     * @throws JeuHeros.ZeroVieException
     * @Override
     */ 
+   
     @Override
-   public  void combat(Heros herosDefense)
-    {
+   public  void combat(Heros herosDefense)throws ZeroVieException {
+       if (this.pointsvie == 0) {
+            throw new ZeroVieException(this.pointsvie);
+        }
         if (this.pointsvie<20)
             System.out.println("Aucune attaque n'a eu lieu");
         else
@@ -67,6 +70,11 @@ public class HerosFeu extends Heros  {
             this.etat();
         herosDefense.etat();   
         
+    }
+
+    @Override
+    public void combat(JeuHeros herosDefense) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
 }
