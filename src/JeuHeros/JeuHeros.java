@@ -6,7 +6,7 @@
 package JeuHeros;
 
 /**main
- *@version 
+ *@version 1.0.0
  * @author p1623082
  */
 public class JeuHeros {
@@ -16,11 +16,11 @@ public class JeuHeros {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        HerosTerre ht=new HerosTerre("Terramon", 150, 100, 25);
+        try{HerosTerre ht=new HerosTerre("Terramon", 150, 100, 25);
         System.out.println(ht.toString());
         HerosMer hm = new HerosMer("Hydromon", 170, 6, 30);
         System.out.println(hm.toString());
-        HerosFeu hf = new HerosFeu("Firomon", 140, 213,7);
+        HerosFeu hf = new HerosFeu("Firomon", 0, 213,7);
         System.out.println(hf.toString());
         hf.combat(ht);
         hm.combat(ht);
@@ -29,6 +29,9 @@ public class JeuHeros {
         ht.combat(hf);
         ht.combat(hf);
         ht.combat(hf);
+        }catch(ZeroVieException e){
+            System.out.println(e.getMessage());
+        }
     }
     
 }

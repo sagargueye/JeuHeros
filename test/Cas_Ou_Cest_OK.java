@@ -7,6 +7,9 @@
 import JeuHeros.HerosFeu;
 import JeuHeros.HerosMer;
 import JeuHeros.HerosTerre;
+import JeuHeros.ZeroVieException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -54,13 +57,14 @@ public class Cas_Ou_Cest_OK {
         System.out.println(hm.toString());
         HerosFeu hf = new HerosFeu("Firomon", 140, 213,7);
         System.out.println(hf.toString());
-        //act: execution de la methode testéé
-        hf.combat(ht);
-        hf.combat(hm);
-        ht.combat(hf);
-        hm.combat(hf);
+        try {
+            //act: execution de la methode testéé
+            hf.combat(hf);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // assert: verification du resultat
-       assertEquals(50.0, hf.getPointsvie(), 0.0001);
+       assertEquals(120.0, hf.getPointsvie(), 0.0001);
        
     }
     @Test
@@ -73,11 +77,27 @@ public class Cas_Ou_Cest_OK {
         System.out.println(hm.toString());
         HerosFeu hf = new HerosFeu("Firomon", 140, 213,7);
         System.out.println(hf.toString());
-        //act: execution de la methode testéé
-        ht.combat(hf);
-        ht.combat(hm);
-        hf.combat(ht);
-        hm.combat(ht);
+        try {
+            //act: execution de la methode testéé
+            ht.combat(hf);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            ht.combat(hm);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            hf.combat(ht);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            hm.combat(ht);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
        // assert: verification du resultat
        assertEquals(85.0, ht.getPointsvie(), 0.0001);
     }
@@ -91,11 +111,27 @@ public class Cas_Ou_Cest_OK {
         System.out.println(hm.toString());
         HerosFeu hf = new HerosFeu("Firomon", 140, 213,7);
         System.out.println(hf.toString());
-        //act: execution de la methode testéé
-        hm.combat(hf);
-        hm.combat(ht);
-        hf.combat(hm);
-        ht.combat(hm);
+        try {
+            //act: execution de la methode testéé
+            hm.combat(hf);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            hm.combat(ht);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            hf.combat(hm);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            ht.combat(hm);
+        } catch (ZeroVieException ex) {
+            Logger.getLogger(Cas_Ou_Cest_OK.class.getName()).log(Level.SEVERE, null, ex);
+        }
        // assert: verification du resultat
        assertEquals(170.0, hm.getPointsvie(), 0.0001);
     }

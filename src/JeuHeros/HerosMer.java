@@ -9,11 +9,11 @@ package JeuHeros;
  *
  * @author p1623082
  */
-public class HerosMer extends Heros {
+public class HerosMer  extends Heros{
     private double nbNageoire;
     private double vitesse;
-    public HerosMer(String nom, double pointsVie,
-            double nbNageoire, double vitesse)
+    
+    public HerosMer(String nom, double pointsVie,double nbNageoire, double vitesse)
     {
         super(nom, pointsVie);
         this.nbNageoire=nbNageoire;
@@ -29,8 +29,11 @@ public class HerosMer extends Heros {
          return nbNageoire*vitesse;
      }
      
-    public  void combat(Heros herosDefense)
-    {
+    public  void combat(Heros herosDefense)throws ZeroVieException {
+       if (this.pointsvie == 0) {
+            throw new ZeroVieException(this.pointsvie);
+        }
+    
      if(this.calculePuissance()>herosDefense.calculePuissance())
             herosDefense.perdpoints(50);
         else if (this.calculePuissance()==herosDefense.calculePuissance())
@@ -48,6 +51,12 @@ public class HerosMer extends Heros {
             
         this.etat();
         herosDefense.etat();   
+    }
+
+    @Override
+    public void combat(JeuHeros herosDefense) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+        //To change body of generated methods, choose Tools | Templates.
     }
    
 }

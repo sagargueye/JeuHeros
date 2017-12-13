@@ -20,6 +20,6 @@ public interface StructHeros {
     public String getnom();
     public void etat();
     public double calculePuissance();
-    public void combat(Heros herosDefense);
+    public void combat(Heros herosDefense) throws ZeroVieException ;
     public void perdpoints(double PointsPerdus);
 }
