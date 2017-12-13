@@ -48,6 +48,10 @@ public class cas_ou_ça_plante {
     @Test
     //j'essaie d'organiser un combat avec 0 point de vie au départ
     //normalement ça devrait pas marcher 
+    // surprise! ça a marché avec un resultat négatif
+    // Du coup j'ai l'obligation de traiter cette erreur
+    //en creant une exception qui va se declencher 
+    //dés qu'on organise un combat avec zero point de vie au depart
     public void Testfeu() {
         ZeroVieException exception = null;
         try {
@@ -63,14 +67,10 @@ public class cas_ou_ça_plante {
             hf.combat(hm);
             ht.combat(hf);
             hm.combat(hf);
-            
+
         } catch (ZeroVieException ex) {
             exception = ex;
         }
         assertNotNull(exception);
     }
 }
-// surprise! ça a marché avec un resultat négatif
-// Du coup j'ai l'obligation de traiter cette erreur
-//en creant une exception qui va se declencher 
-//dés qu'on organise un combat avec zero point de vie au depart
