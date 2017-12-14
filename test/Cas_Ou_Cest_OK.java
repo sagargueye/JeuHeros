@@ -47,6 +47,7 @@ public class Cas_Ou_Cest_OK {
     //
     // @Test
     // public void hello() {}
+    //je teste la methode combat de chaque classe avec des données normales qui sont censées fonctionner
     @Test 
     public void Testfeu ()
     {
