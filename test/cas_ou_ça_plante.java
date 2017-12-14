@@ -50,8 +50,9 @@ public class cas_ou_ça_plante {
     //normalement ça devrait pas marcher 
     // surprise! ça a marché avec un resultat négatif
     // Du coup j'ai l'obligation de traiter cette erreur
-    //en creant une exception qui va se declencher 
+    //en creant une exception  (ZeroVieException) qui va se declencher
     //dés qu'on organise un combat avec zero point de vie au depart
+    //je fais le teste sur la classe heros feu
     public void Testfeu() {
         ZeroVieException exception = null;
         try {
